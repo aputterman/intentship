@@ -42,7 +42,7 @@
           Mindsets
         </label>
 
-        <input type="text" id="mindsets_id" name="mindsets_id" placeholder="Mindsets" class="form-control" value="<%= @primer.mindsets_id %>">
+        <%= select_tag(:mindsets_id, options_from_collection_for_select(Mindset.all, :id, :name, @primer.mindsets_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
