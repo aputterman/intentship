@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @focu.errors.any? %>
+  <% @focu.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Focu #<%= @focu.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_focu/<%= @focu.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @focu.name %>">
+      </div>
+
+      <!-- Label and input for goals_id -->
+      <div class="form-group">
+        <label for="goals_id" class="control-label">
+          Goals
+        </label>
+
+        <input type="text" id="goals_id" name="goals_id" placeholder="Goals" class="form-control" value="<%= @focu.goals_id %>">
+      </div>
+
+      <!-- Label and input for mindsets_id -->
+      <div class="form-group">
+        <label for="mindsets_id" class="control-label">
+          Mindsets
+        </label>
+
+        <input type="text" id="mindsets_id" name="mindsets_id" placeholder="Mindsets" class="form-control" value="<%= @focu.mindsets_id %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @focu.description %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @focu.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Focu
+      </button>
+      or
+      <a href="/focus/<%= @focu.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

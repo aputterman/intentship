@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Focu resource:
+  # CREATE
+  get "/focus/new", :controller => "focus", :action => "new"
+  post "/create_focu", :controller => "focus", :action => "create"
+
+  # READ
+  get "/focus", :controller => "focus", :action => "index"
+  get "/focus/:id", :controller => "focus", :action => "show"
+
+  # UPDATE
+  get "/focus/:id/edit", :controller => "focus", :action => "edit"
+  post "/update_focu/:id", :controller => "focus", :action => "update"
+
+  # DELETE
+  get "/delete_focu/:id", :controller => "focus", :action => "destroy"
+  #------------------------------
+
   # Routes for the Goal resource:
   # CREATE
   get "/goals/new", :controller => "goals", :action => "new"

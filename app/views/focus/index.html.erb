@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Focus
+    <a href="/focus/new" class="btn btn-lg btn-success">New Focu</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Goals</th>
+        <th>Mindsets</th>
+        <th>Description</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @focus.each do |focu| %>
+      <tr>
+        <td><%= focu.name %></td>
+        <td><%= focu.goals_id %></td>
+        <td><%= focu.mindsets_id %></td>
+        <td><%= focu.description %></td>
+        <td><%= focu.user_id %></td>
+        <td>
+          <a href="/focus/<%= focu.id %>" class="btn btn-primary">Show</a>
+          <a href="/focus/<%= focu.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_focu/<%= focu.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
