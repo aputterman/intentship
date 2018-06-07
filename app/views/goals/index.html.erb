@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Goals
+    <a href="/goals/new" class="btn btn-lg btn-success">New Goal</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @goals.each do |goal| %>
+      <tr>
+        <td><%= goal.name %></td>
+        <td><%= goal.user_id %></td>
+        <td>
+          <a href="/goals/<%= goal.id %>" class="btn btn-primary">Show</a>
+          <a href="/goals/<%= goal.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_goal/<%= goal.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
