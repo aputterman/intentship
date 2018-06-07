@@ -10,7 +10,7 @@ class PrimersController < ApplicationController
   end
 
   def index
-    @primers = Primer.all
+    @primers = current_user.primers.page(params[:page]).per(10)
 
     render("primers/index.html.erb")
   end
