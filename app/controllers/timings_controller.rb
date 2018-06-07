@@ -1,6 +1,6 @@
 class TimingsController < ApplicationController
   def index
-    @timings = Timing.all
+    @timings = Timing.page(params[:page]).per(10)
 
     render("timings/index.html.erb")
   end
