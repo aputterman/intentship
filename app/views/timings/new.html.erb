@@ -51,7 +51,7 @@
           Reminders
         </label>
 
-        <input type="text" id="reminders_id" name="reminders_id" placeholder="Reminders" class="form-control" value="<%= @timing.reminders_id %>">
+        <%= select_tag(:reminders_id, options_from_collection_for_select(Reminder.all, :id, :focus_id, @timing.reminders_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
