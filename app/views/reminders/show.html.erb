@@ -20,12 +20,14 @@
       <a href="/reminders" class="btn btn-primary">
         Back
       </a>
-      <a href="/reminders/<%= @reminder.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_reminder/<%= @reminder.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @reminder.user %>
+        <a href="/reminders/<%= @reminder.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_reminder/<%= @reminder.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
