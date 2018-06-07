@@ -1,5 +1,5 @@
 class RemindersController < ApplicationController
-  before_action :current_user_must_be_reminder_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_reminder_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_reminder_user
     reminder = Reminder.find(params[:id])
