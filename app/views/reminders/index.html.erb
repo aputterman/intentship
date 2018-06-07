@@ -18,7 +18,7 @@
       <% @reminders.each do |reminder| %>
       <tr>
         <td><%= reminder.focus.name %></td>
-        <td><%= reminder.mindsets_id %></td>
+        <td><%= reminder.mindsets.name %></td>
         <td><%= reminder.user_id %></td>
         <td>
           <a href="/reminders/<%= reminder.id %>" class="btn btn-primary">Show</a>
