@@ -24,8 +24,11 @@
         <td><%= primer.user.email %></td>
         <td>
           <a href="/primers/<%= primer.id %>" class="btn btn-primary">Show</a>
-          <a href="/primers/<%= primer.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_primer/<%= primer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == primer.user %>
+            <a href="/primers/<%= primer.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_primer/<%= primer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
