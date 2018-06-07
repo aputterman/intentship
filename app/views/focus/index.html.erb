@@ -26,8 +26,11 @@
         <td><%= focu.user.email %></td>
         <td>
           <a href="/focus/<%= focu.id %>" class="btn btn-primary">Show</a>
-          <a href="/focus/<%= focu.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_focu/<%= focu.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == focu.user %>
+            <a href="/focus/<%= focu.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_focu/<%= focu.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
