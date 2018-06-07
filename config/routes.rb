@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Timing resource:
+  # CREATE
+  get "/timings/new", :controller => "timings", :action => "new"
+  post "/create_timing", :controller => "timings", :action => "create"
+
+  # READ
+  get "/timings", :controller => "timings", :action => "index"
+  get "/timings/:id", :controller => "timings", :action => "show"
+
+  # UPDATE
+  get "/timings/:id/edit", :controller => "timings", :action => "edit"
+  post "/update_timing/:id", :controller => "timings", :action => "update"
+
+  # DELETE
+  get "/delete_timing/:id", :controller => "timings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Reminder resource:
   # CREATE
   get "/reminders/new", :controller => "reminders", :action => "new"
