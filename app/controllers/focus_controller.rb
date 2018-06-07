@@ -16,6 +16,7 @@ class FocusController < ApplicationController
   end
 
   def show
+    @reminder = Reminder.new
     @focu = Focu.find(params[:id])
 
     render("focus/show.html.erb")

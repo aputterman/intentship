@@ -59,6 +59,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_reminder" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for focus_id -->
+      <div class="form-group">
+        <label for="focus_id" class="control-label">
+          Focus
+        </label>
+
+        <%= select_tag(:focus_id, options_from_collection_for_select(Focu.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for mindsets_id -->
+      <div class="form-group">
+        <label for="mindsets_id" class="control-label">
+          Mindsets
+        </label>
+
+        <%= select_tag(:mindsets_id, options_from_collection_for_select(Mindset.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Reminder
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -90,6 +122,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_primer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for mindsets_id -->
+      <div class="form-group">
+        <label for="mindsets_id" class="control-label">
+          Mindsets
+        </label>
+
+        <%= select_tag(:mindsets_id, options_from_collection_for_select(Mindset.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Primer
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -59,6 +59,53 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_timing" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for day -->
+      <div class="form-group">
+        <label for="day" class="control-label">
+          Day
+        </label>
+
+        <input type="text" id="day" name="day" placeholder="Day" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for reminders_id -->
+      <div class="form-group">
+        <label for="reminders_id" class="control-label">
+          Reminders
+        </label>
+
+        <%= select_tag(:reminders_id, options_from_collection_for_select(Reminder.all, :id, :focus_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Timing
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

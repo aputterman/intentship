@@ -16,6 +16,8 @@ class MindsetsController < ApplicationController
   end
 
   def show
+    @primer = Primer.new
+    @reminder = Reminder.new
     @mindset = Mindset.find(params[:id])
 
     render("mindsets/show.html.erb")

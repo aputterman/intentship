@@ -16,6 +16,7 @@ class RemindersController < ApplicationController
   end
 
   def show
+    @timing = Timing.new
     @reminder = Reminder.find(params[:id])
 
     render("reminders/show.html.erb")
