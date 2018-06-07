@@ -10,7 +10,8 @@ class MindsetsController < ApplicationController
   end
 
   def index
-    @mindsets = current_user.mindsets.page(params[:page]).per(10)
+    @q = current_user.mindsets.ransack(params[:q])
+    @mindsets = @q.result(:distinct => true).includes(:user, :reminders, :primers).page(params[:page]).per(10)
 
     render("mindsets/index.html.erb")
   end

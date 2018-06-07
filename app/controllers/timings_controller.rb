@@ -1,6 +1,7 @@
 class TimingsController < ApplicationController
   def index
-    @timings = Timing.page(params[:page]).per(10)
+    @q = Timing.ransack(params[:q])
+    @timings = @q.result(:distinct => true).includes(:reminders).page(params[:page]).per(10)
 
     render("timings/index.html.erb")
   end

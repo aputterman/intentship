@@ -10,7 +10,8 @@ class FocusController < ApplicationController
   end
 
   def index
-    @focus = current_user.focus.page(params[:page]).per(10)
+    @q = current_user.focus.ransack(params[:q])
+    @focus = @q.result(:distinct => true).includes(:user, :goals, :reminders).page(params[:page]).per(10)
 
     render("focus/index.html.erb")
   end

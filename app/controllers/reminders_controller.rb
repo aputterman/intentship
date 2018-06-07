@@ -10,7 +10,8 @@ class RemindersController < ApplicationController
   end
 
   def index
-    @reminders = current_user.reminders.page(params[:page]).per(10)
+    @q = current_user.reminders.ransack(params[:q])
+    @reminders = @q.result(:distinct => true).includes(:user, :focus, :mindsets, :timings).page(params[:page]).per(10)
 
     render("reminders/index.html.erb")
   end

@@ -10,7 +10,8 @@ class PrimersController < ApplicationController
   end
 
   def index
-    @primers = current_user.primers.page(params[:page]).per(10)
+    @q = current_user.primers.ransack(params[:q])
+    @primers = @q.result(:distinct => true).includes(:user, :mindsets).page(params[:page]).per(10)
 
     render("primers/index.html.erb")
   end
