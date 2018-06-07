@@ -10,7 +10,7 @@ class GoalsController < ApplicationController
   end
 
   def index
-    @goals = Goal.all
+    @goals = current_user.goals.page(params[:page]).per(10)
 
     render("goals/index.html.erb")
   end
