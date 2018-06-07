@@ -1,4 +1,14 @@
 class MindsetsController < ApplicationController
+  before_action :current_user_must_be_mindset_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_mindset_user
+    mindset = Mindset.find(params[:id])
+
+    unless current_user == mindset.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @mindsets = Mindset.all
 

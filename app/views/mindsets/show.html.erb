@@ -20,12 +20,14 @@
       <a href="/mindsets" class="btn btn-primary">
         Back
       </a>
-      <a href="/mindsets/<%= @mindset.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_mindset/<%= @mindset.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @mindset.user %>
+        <a href="/mindsets/<%= @mindset.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_mindset/<%= @mindset.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
