@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "goals#index"
   # Routes for the Timing resource:
   # CREATE
   get "/timings/new", :controller => "timings", :action => "new"
