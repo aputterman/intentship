@@ -33,7 +33,7 @@
           Goals
         </label>
 
-        <input type="text" id="goals_id" name="goals_id" placeholder="Goals" class="form-control" value="<%= @focu.goals_id %>">
+        <%= select_tag(:goals_id, options_from_collection_for_select(Goal.all, :id, :name, @focu.goals_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for mindsets_id -->
