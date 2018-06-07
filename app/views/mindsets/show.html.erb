@@ -11,29 +11,18 @@
       <dt>Description</dt>
       <dd><%= @mindset.description %></dd>
 
-      <dt>User</dt>
-      <dd>
-        <% if @mindset.user.present? %>
-          <a href="/users/<%= @mindset.user_id %>">
-            <%= @mindset.user.email %>
-          </a>
-        <% end %>
-      </dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/mindsets" class="btn btn-primary">
         Back
       </a>
-      <% if current_user == @mindset.user %>
-        <a href="/mindsets/<%= @mindset.id %>/edit" class="btn btn-warning">
-          Edit
-        </a>
-        <a href="/delete_mindset/<%= @mindset.id %>" class="btn btn-danger" rel="nofollow">
-          Delete
-        </a>
-      <% end %>
+      <a href="/mindsets/<%= @mindset.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_mindset/<%= @mindset.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
     </div>
   </div>
 </div>
@@ -160,9 +149,6 @@
 
         <%= select_tag(:mindsets_id, options_from_collection_for_select(Mindset.all, :id, :name), :class => "form-control") %>
       </div>
-
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
       <button class="btn btn-block btn-success">
         Create Primer
