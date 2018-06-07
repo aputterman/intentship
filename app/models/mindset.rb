@@ -9,9 +9,6 @@ class Mindset < ApplicationRecord
              :foreign_key => "mindsets_id",
              :dependent => :destroy
 
-  belongs_to :user,
-             :counter_cache => true
-
   # Indirect associations
 
   # Validations

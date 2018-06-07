@@ -59,11 +59,6 @@
       </script>
 
         <div class="form-group">
-      <%= f.label :user_email_cont, "User email contains" %>
-      <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
-    </div>
-
-<div class="form-group">
       <%= f.label :primers_name_cont, "Primer name contains" %>
       <%= f.text_field :primers_name_cont, :class => "form-control", :placeholder => "Primer name contains" %>
     </div>
@@ -84,7 +79,6 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>User</th>
         <th>Actions</th>
       </tr>
 
@@ -93,19 +87,9 @@
         <td><%= mindset.name %></td>
         <td><%= mindset.description %></td>
         <td>
-          <% if mindset.user.present? %>
-            <a href="/users/<%= mindset.user.id %>">
-              <%= mindset.user.email %>
-            </a>
-          <% end %>
-        </td>
-        <td>
           <a href="/mindsets/<%= mindset.id %>" class="btn btn-primary">Show</a>
-          
-          <% if current_user == mindset.user %>
-            <a href="/mindsets/<%= mindset.id %>/edit" class="btn btn-warning">Edit</a>
-            <a href="/delete_mindset/<%= mindset.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-          <% end %>
+          <a href="/mindsets/<%= mindset.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_mindset/<%= mindset.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
