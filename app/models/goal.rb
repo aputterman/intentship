@@ -5,4 +5,6 @@ class Goal < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => { :message => "whoa there - you can't NOT fill this out" }
+
 end
