@@ -1,6 +1,10 @@
 class Primer < ApplicationRecord
   # Direct associations
 
+  belongs_to :mindsets,
+             :class_name => "Mindset",
+             :counter_cache => true
+
   belongs_to :user,
              :counter_cache => true
 
