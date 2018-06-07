@@ -1,5 +1,5 @@
 class FocusController < ApplicationController
-  before_action :current_user_must_be_focu_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_focu_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_focu_user
     focu = Focu.find(params[:id])
