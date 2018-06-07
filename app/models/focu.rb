@@ -1,6 +1,10 @@
 class Focu < ApplicationRecord
   # Direct associations
 
+  belongs_to :goals,
+             :class_name => "Goal",
+             :counter_cache => true
+
   belongs_to :user,
              :counter_cache => true
 
