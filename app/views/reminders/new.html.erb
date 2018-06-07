@@ -24,7 +24,7 @@
           Focus
         </label>
 
-        <input type="text" id="focus_id" name="focus_id" placeholder="Focus" class="form-control" value="<%= @reminder.focus_id %>">
+        <%= select_tag(:focus_id, options_from_collection_for_select(Focu.all, :id, :name, @reminder.focus_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for mindsets_id -->
