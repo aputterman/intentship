@@ -10,7 +10,7 @@ class MindsetsController < ApplicationController
   end
 
   def index
-    @mindsets = Mindset.all
+    @mindsets = current_user.mindsets.page(params[:page]).per(10)
 
     render("mindsets/index.html.erb")
   end
