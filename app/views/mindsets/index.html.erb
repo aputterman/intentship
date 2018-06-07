@@ -19,7 +19,7 @@
       <tr>
         <td><%= mindset.name %></td>
         <td><%= mindset.description %></td>
-        <td><%= mindset.user_id %></td>
+        <td><%= mindset.user.email %></td>
         <td>
           <a href="/mindsets/<%= mindset.id %>" class="btn btn-primary">Show</a>
           <a href="/mindsets/<%= mindset.id %>/edit" class="btn btn-warning">Edit</a>
