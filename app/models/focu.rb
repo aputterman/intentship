@@ -1,6 +1,10 @@
 class Focu < ApplicationRecord
   # Direct associations
 
+  has_many   :reminders,
+             :foreign_key => "focus_id",
+             :dependent => :destroy
+
   belongs_to :goals,
              :class_name => "Goal",
              :counter_cache => true
