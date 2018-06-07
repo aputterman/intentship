@@ -12,10 +12,22 @@
       <dd><%= @primer.description %></dd>
 
       <dt>Mindsets</dt>
-      <dd><%= @primer.mindsets_id %></dd>
+      <dd>
+        <% if @primer.mindsets.present? %>
+          <a href="/mindsets/<%= @primer.mindsets_id %>">
+            <%= @primer.mindsets.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @primer.user_id %></dd>
+      <dd>
+        <% if @primer.user.present? %>
+          <a href="/users/<%= @primer.user_id %>">
+            <%= @primer.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

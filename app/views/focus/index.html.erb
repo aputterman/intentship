@@ -20,10 +20,22 @@
       <% @focus.each do |focu| %>
       <tr>
         <td><%= focu.name %></td>
-        <td><%= focu.goals.name %></td>
+        <td>
+          <% if focu.goals.present? %>
+            <a href="/goals/<%= focu.goals.id %>">
+              <%= focu.goals.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= focu.mindsets_id %></td>
         <td><%= focu.description %></td>
-        <td><%= focu.user.email %></td>
+        <td>
+          <% if focu.user.present? %>
+            <a href="/users/<%= focu.user.id %>">
+              <%= focu.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/focus/<%= focu.id %>" class="btn btn-primary">Show</a>
           

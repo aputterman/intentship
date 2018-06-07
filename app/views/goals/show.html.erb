@@ -9,7 +9,13 @@
       <dd><%= @goal.name %></dd>
 
       <dt>User</dt>
-      <dd><%= @goal.user_id %></dd>
+      <dd>
+        <% if @goal.user.present? %>
+          <a href="/users/<%= @goal.user_id %>">
+            <%= @goal.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

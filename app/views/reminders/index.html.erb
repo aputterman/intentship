@@ -17,9 +17,27 @@
 
       <% @reminders.each do |reminder| %>
       <tr>
-        <td><%= reminder.focus.name %></td>
-        <td><%= reminder.mindsets.name %></td>
-        <td><%= reminder.user.email %></td>
+        <td>
+          <% if reminder.focus.present? %>
+            <a href="/focus/<%= reminder.focus.id %>">
+              <%= reminder.focus.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if reminder.mindsets.present? %>
+            <a href="/mindsets/<%= reminder.mindsets.id %>">
+              <%= reminder.mindsets.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if reminder.user.present? %>
+            <a href="/users/<%= reminder.user.id %>">
+              <%= reminder.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/reminders/<%= reminder.id %>" class="btn btn-primary">Show</a>
           

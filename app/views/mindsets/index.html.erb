@@ -19,7 +19,13 @@
       <tr>
         <td><%= mindset.name %></td>
         <td><%= mindset.description %></td>
-        <td><%= mindset.user.email %></td>
+        <td>
+          <% if mindset.user.present? %>
+            <a href="/users/<%= mindset.user.id %>">
+              <%= mindset.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/mindsets/<%= mindset.id %>" class="btn btn-primary">Show</a>
           

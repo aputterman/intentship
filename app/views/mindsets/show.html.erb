@@ -12,7 +12,13 @@
       <dd><%= @mindset.description %></dd>
 
       <dt>User</dt>
-      <dd><%= @mindset.user_id %></dd>
+      <dd>
+        <% if @mindset.user.present? %>
+          <a href="/users/<%= @mindset.user_id %>">
+            <%= @mindset.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

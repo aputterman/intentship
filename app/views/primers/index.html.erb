@@ -20,8 +20,20 @@
       <tr>
         <td><%= primer.name %></td>
         <td><%= primer.description %></td>
-        <td><%= primer.mindsets.name %></td>
-        <td><%= primer.user.email %></td>
+        <td>
+          <% if primer.mindsets.present? %>
+            <a href="/mindsets/<%= primer.mindsets.id %>">
+              <%= primer.mindsets.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if primer.user.present? %>
+            <a href="/users/<%= primer.user.id %>">
+              <%= primer.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/primers/<%= primer.id %>" class="btn btn-primary">Show</a>
           

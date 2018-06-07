@@ -15,7 +15,13 @@
       <dd><%= @timing.day %></dd>
 
       <dt>Reminders</dt>
-      <dd><%= @timing.reminders_id %></dd>
+      <dd>
+        <% if @timing.reminders.present? %>
+          <a href="/reminders/<%= @timing.reminders_id %>">
+            <%= @timing.reminders.focus_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

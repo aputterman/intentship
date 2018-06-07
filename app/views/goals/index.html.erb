@@ -17,7 +17,13 @@
       <% @goals.each do |goal| %>
       <tr>
         <td><%= goal.name %></td>
-        <td><%= goal.user.email %></td>
+        <td>
+          <% if goal.user.present? %>
+            <a href="/users/<%= goal.user.id %>">
+              <%= goal.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/goals/<%= goal.id %>" class="btn btn-primary">Show</a>
           

@@ -21,7 +21,13 @@
         <td><%= timing.time %></td>
         <td><%= timing.date %></td>
         <td><%= timing.day %></td>
-        <td><%= timing.reminders.focus_id %></td>
+        <td>
+          <% if timing.reminders.present? %>
+            <a href="/reminders/<%= timing.reminders.id %>">
+              <%= timing.reminders.focus_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/timings/<%= timing.id %>" class="btn btn-primary">Show</a>
           <a href="/timings/<%= timing.id %>/edit" class="btn btn-warning">Edit</a>

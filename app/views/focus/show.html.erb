@@ -9,7 +9,13 @@
       <dd><%= @focu.name %></dd>
 
       <dt>Goals</dt>
-      <dd><%= @focu.goals_id %></dd>
+      <dd>
+        <% if @focu.goals.present? %>
+          <a href="/goals/<%= @focu.goals_id %>">
+            <%= @focu.goals.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Mindsets</dt>
       <dd><%= @focu.mindsets_id %></dd>
@@ -18,7 +24,13 @@
       <dd><%= @focu.description %></dd>
 
       <dt>User</dt>
-      <dd><%= @focu.user_id %></dd>
+      <dd>
+        <% if @focu.user.present? %>
+          <a href="/users/<%= @focu.user_id %>">
+            <%= @focu.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
