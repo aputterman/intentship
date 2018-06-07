@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Reminder resource:
+  # CREATE
+  get "/reminders/new", :controller => "reminders", :action => "new"
+  post "/create_reminder", :controller => "reminders", :action => "create"
+
+  # READ
+  get "/reminders", :controller => "reminders", :action => "index"
+  get "/reminders/:id", :controller => "reminders", :action => "show"
+
+  # UPDATE
+  get "/reminders/:id/edit", :controller => "reminders", :action => "edit"
+  post "/update_reminder/:id", :controller => "reminders", :action => "update"
+
+  # DELETE
+  get "/delete_reminder/:id", :controller => "reminders", :action => "destroy"
+  #------------------------------
+
   # Routes for the Primer resource:
   # CREATE
   get "/primers/new", :controller => "primers", :action => "new"

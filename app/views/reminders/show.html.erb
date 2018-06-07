@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Reminder #<%= @reminder.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Focus</dt>
+      <dd><%= @reminder.focus_id %></dd>
+
+      <dt>Mindsets</dt>
+      <dd><%= @reminder.mindsets_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @reminder.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/reminders" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/reminders/<%= @reminder.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_reminder/<%= @reminder.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
