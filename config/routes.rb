@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Primer resource:
+  # CREATE
+  get "/primers/new", :controller => "primers", :action => "new"
+  post "/create_primer", :controller => "primers", :action => "create"
+
+  # READ
+  get "/primers", :controller => "primers", :action => "index"
+  get "/primers/:id", :controller => "primers", :action => "show"
+
+  # UPDATE
+  get "/primers/:id/edit", :controller => "primers", :action => "edit"
+  post "/update_primer/:id", :controller => "primers", :action => "update"
+
+  # DELETE
+  get "/delete_primer/:id", :controller => "primers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Mindset resource:
   # CREATE
   get "/mindsets/new", :controller => "mindsets", :action => "new"

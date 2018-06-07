@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Primers
+    <a href="/primers/new" class="btn btn-lg btn-success">New Primer</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Mindsets</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @primers.each do |primer| %>
+      <tr>
+        <td><%= primer.name %></td>
+        <td><%= primer.description %></td>
+        <td><%= primer.mindsets_id %></td>
+        <td><%= primer.user_id %></td>
+        <td>
+          <a href="/primers/<%= primer.id %>" class="btn btn-primary">Show</a>
+          <a href="/primers/<%= primer.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_primer/<%= primer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
