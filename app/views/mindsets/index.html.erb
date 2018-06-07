@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Mindsets
+    <a href="/mindsets/new" class="btn btn-lg btn-success">New Mindset</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @mindsets.each do |mindset| %>
+      <tr>
+        <td><%= mindset.name %></td>
+        <td><%= mindset.description %></td>
+        <td><%= mindset.user_id %></td>
+        <td>
+          <a href="/mindsets/<%= mindset.id %>" class="btn btn-primary">Show</a>
+          <a href="/mindsets/<%= mindset.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_mindset/<%= mindset.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

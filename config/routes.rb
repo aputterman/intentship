@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Mindset resource:
+  # CREATE
+  get "/mindsets/new", :controller => "mindsets", :action => "new"
+  post "/create_mindset", :controller => "mindsets", :action => "create"
+
+  # READ
+  get "/mindsets", :controller => "mindsets", :action => "index"
+  get "/mindsets/:id", :controller => "mindsets", :action => "show"
+
+  # UPDATE
+  get "/mindsets/:id/edit", :controller => "mindsets", :action => "edit"
+  post "/update_mindset/:id", :controller => "mindsets", :action => "update"
+
+  # DELETE
+  get "/delete_mindset/:id", :controller => "mindsets", :action => "destroy"
+  #------------------------------
+
   # Routes for the Focu resource:
   # CREATE
   get "/focus/new", :controller => "focus", :action => "new"
