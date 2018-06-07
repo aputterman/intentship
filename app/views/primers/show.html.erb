@@ -20,29 +20,18 @@
         <% end %>
       </dd>
 
-      <dt>User</dt>
-      <dd>
-        <% if @primer.user.present? %>
-          <a href="/users/<%= @primer.user_id %>">
-            <%= @primer.user.email %>
-          </a>
-        <% end %>
-      </dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/primers" class="btn btn-primary">
         Back
       </a>
-      <% if current_user == @primer.user %>
-        <a href="/primers/<%= @primer.id %>/edit" class="btn btn-warning">
-          Edit
-        </a>
-        <a href="/delete_primer/<%= @primer.id %>" class="btn btn-danger" rel="nofollow">
-          Delete
-        </a>
-      <% end %>
+      <a href="/primers/<%= @primer.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_primer/<%= @primer.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
     </div>
   </div>
 </div>

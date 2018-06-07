@@ -1,17 +1,7 @@
 class PrimersController < ApplicationController
-  before_action :current_user_must_be_primer_user, :only => [:show, :edit, :update, :destroy]
-
-  def current_user_must_be_primer_user
-    primer = Primer.find(params[:id])
-
-    unless current_user == primer.user
-      redirect_to :back, :alert => "You are not authorized for that."
-    end
-  end
-
   def index
-    @q = current_user.primers.ransack(params[:q])
-    @primers = @q.result(:distinct => true).includes(:user, :mindsets).page(params[:page]).per(10)
+    @q = Primer.ransack(params[:q])
+    @primers = @q.result(:distinct => true).includes(:mindsets).page(params[:page]).per(10)
 
     render("primers/index.html.erb")
   end
@@ -34,7 +24,6 @@ class PrimersController < ApplicationController
     @primer.name = params[:name]
     @primer.description = params[:description]
     @primer.mindsets_id = params[:mindsets_id]
-    @primer.user_id = params[:user_id]
 
     save_status = @primer.save
 
@@ -64,7 +53,6 @@ class PrimersController < ApplicationController
     @primer.name = params[:name]
     @primer.description = params[:description]
     @primer.mindsets_id = params[:mindsets_id]
-    @primer.user_id = params[:user_id]
 
     save_status = @primer.save
 

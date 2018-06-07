@@ -1,17 +1,7 @@
 class MindsetsController < ApplicationController
-  before_action :current_user_must_be_mindset_user, :only => [:show, :edit, :update, :destroy]
-
-  def current_user_must_be_mindset_user
-    mindset = Mindset.find(params[:id])
-
-    unless current_user == mindset.user
-      redirect_to :back, :alert => "You are not authorized for that."
-    end
-  end
-
   def index
-    @q = current_user.mindsets.ransack(params[:q])
-    @mindsets = @q.result(:distinct => true).includes(:user, :reminders, :primers).page(params[:page]).per(10)
+    @q = Mindset.ransack(params[:q])
+    @mindsets = @q.result(:distinct => true).includes(:reminders, :primers).page(params[:page]).per(10)
 
     render("mindsets/index.html.erb")
   end
@@ -35,7 +25,6 @@ class MindsetsController < ApplicationController
 
     @mindset.name = params[:name]
     @mindset.description = params[:description]
-    @mindset.user_id = params[:user_id]
 
     save_status = @mindset.save
 
@@ -64,7 +53,6 @@ class MindsetsController < ApplicationController
 
     @mindset.name = params[:name]
     @mindset.description = params[:description]
-    @mindset.user_id = params[:user_id]
 
     save_status = @mindset.save
 
