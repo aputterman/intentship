@@ -1,6 +1,10 @@
 class Reminder < ApplicationRecord
   # Direct associations
 
+  belongs_to :mindsets,
+             :class_name => "Mindset",
+             :counter_cache => true
+
   belongs_to :focus,
              :class_name => "Focu",
              :counter_cache => true

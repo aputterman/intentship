@@ -1,6 +1,10 @@
 class Mindset < ApplicationRecord
   # Direct associations
 
+  has_many   :reminders,
+             :foreign_key => "mindsets_id",
+             :dependent => :destroy
+
   belongs_to :user,
              :counter_cache => true
 
