@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Mindset has many reminders -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Reminders
+      </li>
+
+      <% @mindset.reminders.each do |reminder| %>
+        <li class="list-group-item">
+          <a href="/reminders/<%= reminder.id %>">
+            <%= reminder.focus_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/reminders/<%= reminder.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/reminders/<%= reminder.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_reminder/<%= reminder.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Mindset has many primers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Primers
+      </li>
+
+      <% @mindset.primers.each do |primer| %>
+        <li class="list-group-item">
+          <a href="/primers/<%= primer.id %>">
+            <%= primer.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/primers/<%= primer.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/primers/<%= primer.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_primer/<%= primer.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

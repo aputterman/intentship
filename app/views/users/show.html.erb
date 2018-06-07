@@ -26,3 +26,158 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many reminders -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Reminders
+      </li>
+
+      <% @user.reminders.each do |reminder| %>
+        <li class="list-group-item">
+          <a href="/reminders/<%= reminder.id %>">
+            <%= reminder.focus_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/reminders/<%= reminder.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/reminders/<%= reminder.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_reminder/<%= reminder.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many goals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Goals
+      </li>
+
+      <% @user.goals.each do |goal| %>
+        <li class="list-group-item">
+          <a href="/goals/<%= goal.id %>">
+            <%= goal.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/goals/<%= goal.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/goals/<%= goal.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_goal/<%= goal.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many focus -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Focus
+      </li>
+
+      <% @user.focus.each do |focu| %>
+        <li class="list-group-item">
+          <a href="/focus/<%= focu.id %>">
+            <%= focu.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/focus/<%= focu.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/focus/<%= focu.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_focu/<%= focu.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many mindsets -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Mindsets
+      </li>
+
+      <% @user.mindsets.each do |mindset| %>
+        <li class="list-group-item">
+          <a href="/mindsets/<%= mindset.id %>">
+            <%= mindset.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/mindsets/<%= mindset.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/mindsets/<%= mindset.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_mindset/<%= mindset.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many primers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Primers
+      </li>
+
+      <% @user.primers.each do |primer| %>
+        <li class="list-group-item">
+          <a href="/primers/<%= primer.id %>">
+            <%= primer.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/primers/<%= primer.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/primers/<%= primer.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_primer/<%= primer.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

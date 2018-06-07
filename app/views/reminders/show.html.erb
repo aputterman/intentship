@@ -29,3 +29,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Reminder has many timings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Timings
+      </li>
+
+      <% @reminder.timings.each do |timing| %>
+        <li class="list-group-item">
+          <a href="/timings/<%= timing.id %>">
+            <%= timing.time %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/timings/<%= timing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/timings/<%= timing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_timing/<%= timing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
