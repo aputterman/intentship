@@ -20,8 +20,11 @@
         <td><%= goal.user.email %></td>
         <td>
           <a href="/goals/<%= goal.id %>" class="btn btn-primary">Show</a>
-          <a href="/goals/<%= goal.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_goal/<%= goal.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == goal.user %>
+            <a href="/goals/<%= goal.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_goal/<%= goal.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

@@ -1,4 +1,14 @@
 class GoalsController < ApplicationController
+  before_action :current_user_must_be_goal_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_goal_user
+    goal = Goal.find(params[:id])
+
+    unless current_user == goal.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @goals = Goal.all
 
