@@ -1,5 +1,5 @@
 class MindsetsController < ApplicationController
-  before_action :current_user_must_be_mindset_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_mindset_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_mindset_user
     mindset = Mindset.find(params[:id])
